@@ -1,0 +1,55 @@
+.ArtistName{
+    color: black;
+    display: inline;
+}
+.OrderedList{
+    list-style-type: circle;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    /* border: 1px solid #000; */
+    /* align-items: center; */
+
+}
+.Album{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: pink;
+    border: 1px solid #000;
+}
+.Image{
+    width: 60px;
+    height: 60px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ArtistName{
+font-family: Arial, sans-serif;
+margin: 0;
+}
+#btn-oauth-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header-container{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#btn-oauth{
+    background: linear-gradient(to right, #ff7f00, #ff00ff);
+    border-radius: 10px;
+    border-color: transparent;
+    border: none;
+}
+#_2{
+    display: inline;
+    margin-right: 20px;
+}
