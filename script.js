@@ -1,7 +1,8 @@
 import {_clientId,_clientSecret} from './config.js'
 const clientId = _clientId;
 const clientSecret =_clientSecret;
-const redirectUri = 'http://127.0.0.1:5500/spotify_charts/index.html';
+console.log(clientId)
+const redirectUri = 'http://127.0.0.1:5500/index.html';
 const scopes = ['user-read-private', 'user-library-read']; 
 let accessToken=''
 const btn = document.getElementById("btn-oauth");
