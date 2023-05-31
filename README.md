@@ -1,1 +1,2 @@
-CLONE THIS DIRECTLY IN YOURR VS CODE MAIN DIRECTORY / FOLDER
+clone into your local repository
+set spotify_charts as the root folder else router navigation error 404
