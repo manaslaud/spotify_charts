@@ -1,5 +1,6 @@
-const clientId = '72a7292dd3954ad7964cb016f239d777';
-const clientSecret = '3e0751b447a5436f847a22dcc33080fd';
+import {_clientId,_clientSecret} from './config.js'
+const clientId = _clientId;
+const clientSecret =_clientSecret;
 const redirectUri = 'http://127.0.0.1:5500/spotify_charts/index.html';
 const scopes = ['user-read-private', 'user-library-read']; 
 let accessToken=''
