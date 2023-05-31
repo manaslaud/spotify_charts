@@ -102,8 +102,6 @@ const renderSavedAlbums=async function(albumList){
     console.log(images)
   })
 }
-
-
 handleAuthorizationCode()
 
 
