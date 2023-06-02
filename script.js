@@ -1,7 +1,7 @@
 import {_clientId,_clientSecret} from './config.js'
 const clientId = _clientId;
 const clientSecret =_clientSecret;
-console.log(clientId)
+// console.log(clientId)
 const redirectUri = 'http://127.0.0.1:5500/index.html';
 const scopes = ['user-read-private', 'user-library-read']; 
 let accessToken=''
@@ -18,7 +18,7 @@ function authorizeSpotify() {
 async function handleAuthorizationCode() {
   const urlParams = new URLSearchParams(window.location.search);
     authorizationCode = urlParams.get('code');
-    console.log(authorizationCode)
+    // console.log(authorizationCode)
 
   if (authorizationCode) {
    await getAccessToken(authorizationCode);
@@ -65,7 +65,7 @@ btn.addEventListener('click', authorizeSpotify);
 
 
 const getSavedAlbums= async function(){
-  console.log(accessToken)
+  // console.log(accessToken)
 const response= await fetch('https://api.spotify.com/v1/me/albums?limit=20&offset=0', { method:'get',
   headers: {
     'Authorization': `Bearer ${accessToken}`
@@ -77,7 +77,7 @@ renderSavedAlbums(data.items);
 const renderSavedAlbums=async function(albumList){
   let ol=document.querySelector('ol')
   ol.className='OrderedList'
-  console.log(albumList)
+  // console.log(albumList)
   albumList.forEach(album=>{
     const li=document.createElement('li')
     li.className='Album'
@@ -100,26 +100,54 @@ const renderSavedAlbums=async function(albumList){
     ImageElement.className='Image'
     li.append(ImageElement)
     ol.append(li)
-    console.log(images)
+    // console.log(images)
   })
 }
 
 const getSearchResults=async function(){
   const searchBar=document.querySelector('.searchBar');
   const searchQuery=searchBar.value;
-  console.log(searchQuery)
+  // console.log(searchQuery)
   const response= await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchQuery)}&type=artist&limit=8`, { method:'get',
   headers: {
     'Authorization': `Bearer ${accessToken}`
   }
 })
 const artistsArray=(await response.json()).artists.items;
-console.log(artistsArray)
 renderSearchResults(artistsArray)
 }
 btn1.addEventListener('click',getSearchResults)
-const renderSearchResults=function(artistsArray){
 
+
+const renderSearchResults=function(artistsArray){
+  console.log(artistsArray)
+const ol=document.querySelector('.search-results')
+
+
+
+artistsArray.forEach((artist)=>{
+  const li= document.createElement('li');
+const profileCard= document.createElement('div');
+// if(artist.image.length==0){
+// }
+  let genreInnerHTML=``
+    //creating genre
+    artist.genres.forEach((genre)=>{
+    genreInnerHTML+=`<span class="genre">${genre}, </span>`
+  })
+  //////////////////
+  profileCard.innerHTML=`
+<img src=${artist.images[0].url} class="artist-img">
+<div class="artist-details">
+<div class="artist-name">${artist.name}</div>
+<div class="artist-popularity">Popularity: ${artist.popularity}</div>
+<div class="artist-genre">Genre: ${genreInnerHTML}</div>
+<div class="artist-followers">Popularity: ${artist.followers.total}</div>
+</div>
+`
+li.appendChild(profileCard)
+ol.appendChild(li)
+})
 }
 handleAuthorizationCode()
 
