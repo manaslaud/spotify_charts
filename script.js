@@ -6,6 +6,7 @@ const redirectUri = 'http://127.0.0.1:5500/index.html';
 const scopes = ['user-read-private', 'user-library-read']; 
 let accessToken=''
 const btn = document.getElementById("btn-oauth");
+const btn1=document.querySelector('.getSeachResults')
 let authorizationCode=''
 
 function authorizeSpotify() {
@@ -101,6 +102,24 @@ const renderSavedAlbums=async function(albumList){
     ol.append(li)
     console.log(images)
   })
+}
+
+const getSearchResults=async function(){
+  const searchBar=document.querySelector('.searchBar');
+  const searchQuery=searchBar.value;
+  console.log(searchQuery)
+  const response= await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchQuery)}&type=artist&limit=8`, { method:'get',
+  headers: {
+    'Authorization': `Bearer ${accessToken}`
+  }
+})
+const artistsArray=(await response.json()).artists.items;
+console.log(artistsArray)
+renderSearchResults(artistsArray)
+}
+btn1.addEventListener('click',getSearchResults)
+const renderSearchResults=function(artistsArray){
+
 }
 handleAuthorizationCode()
 

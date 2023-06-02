@@ -53,3 +53,9 @@ margin: 0;
     display: inline;
     margin-right: 20px;
 }
+.getSeachResults{
+    background: linear-gradient(to right, #ff7f00, #ff00ff);
+    border-radius: 10px;
+    border-color: transparent;
+    border: none;
+}
