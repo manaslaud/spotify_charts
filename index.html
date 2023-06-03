@@ -7,6 +7,7 @@
     <title>Main</title>
     <script src="script.js"  async type="module"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -17,7 +18,8 @@
     <button id="btn-oauth">Request oAuth</button>
     </div>
     <section id="saved-albums">
-        <h3>1.My Saved Albums</h3>
+        <h3 class="MySavedAlbumsHeader">1.My Saved Albums</h3>
+        <button id="btn-savedAlbums">Saved Albums</button>
         <ol>
     
         </ol>
@@ -26,9 +28,7 @@
         <h3 id="_2">2.Artists</h3>
         <input type="search" class="searchBar">
         <button class="getSeachResults"> Search</button>
-        <ol class="search-results">
-            
-        </ol>
+        <ol class="search-results"></ol>
     </section>
 </body>
 </html>

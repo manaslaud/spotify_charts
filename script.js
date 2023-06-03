@@ -7,6 +7,7 @@ const scopes = ['user-read-private', 'user-library-read'];
 let accessToken=''
 const btn = document.getElementById("btn-oauth");
 const btn1=document.querySelector('.getSeachResults')
+const btn2=document.getElementById('btn-savedAlbums')
 let authorizationCode=''
 
 function authorizeSpotify() {
@@ -48,7 +49,6 @@ async function getAccessToken(authorizationCode) {
     if (response.ok) {
       const data = await response.json();
        accessToken = data.access_token;
-       getSavedAlbums()
        
      
     } else {
@@ -61,7 +61,6 @@ async function getAccessToken(authorizationCode) {
 }
 
 btn.addEventListener('click', authorizeSpotify);
-
 
 
 const getSavedAlbums= async function(){
@@ -120,14 +119,14 @@ btn1.addEventListener('click',getSearchResults)
 
 
 const renderSearchResults=function(artistsArray){
-  console.log(artistsArray)
 const ol=document.querySelector('.search-results')
-
-
-
+if(ol.innerHTML==='')
+{
 artistsArray.forEach((artist)=>{
   const li= document.createElement('li');
 const profileCard= document.createElement('div');
+profileCard.className='profileCard'
+li.className='li'
 // if(artist.image.length==0){
 // }
   let genreInnerHTML=``
@@ -137,18 +136,27 @@ const profileCard= document.createElement('div');
   })
   //////////////////
   profileCard.innerHTML=`
-<img src=${artist.images[0].url} class="artist-img">
+<img src=${artist.images.length==0?'black-background-face-digital-art-colorful-wallpaper-preview.jpg':artist.images[0].url} class="artist-img">
 <div class="artist-details">
 <div class="artist-name">${artist.name}</div>
-<div class="artist-popularity">Popularity: ${artist.popularity}</div>
-<div class="artist-genre">Genre: ${genreInnerHTML}</div>
-<div class="artist-followers">Popularity: ${artist.followers.total}</div>
+<div class="artist-popularity info">Popularity: ${artist.popularity}</div>
+<div class="artist-genre info ">Genre: ${genreInnerHTML}</div>
+<div class="artist-followers info">Popularity: ${artist.followers.total}</div>
 </div>
 `
 li.appendChild(profileCard)
 ol.appendChild(li)
 })
 }
+else{
+  ol.innerHTML=''
+  renderSearchResults(artistsArray)
+}
+}
+
+
+
+btn2.addEventListener('click',getSavedAlbums)
 handleAuthorizationCode()
 
 
