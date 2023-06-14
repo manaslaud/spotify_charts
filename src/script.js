@@ -1,4 +1,3 @@
-import '../styles.css';
 const clientId = '72a7292dd3954ad7964cb016f239d777';
 const clientSecret ='3e0751b447a5436f847a22dcc33080fd';
 // console.log(clientId)
