@@ -1,4 +1,3 @@
 # Ignore config.js file, create app on spotify dashboard to extract client Id and Secret From it.
-config.js
 **/node_modules
 
