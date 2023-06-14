@@ -1,7 +1,6 @@
-import {_clientId,_clientSecret} from './config.js'
 import '../styles.css';
-const clientId = _clientId;
-const clientSecret =_clientSecret;
+const clientId = '72a7292dd3954ad7964cb016f239d777';
+const clientSecret ='3e0751b447a5436f847a22dcc33080fd';
 // console.log(clientId)
 const redirectUri = 'http://127.0.0.1:5500/index.html';
 const scopes = ['user-read-private', 'user-library-read']; 
