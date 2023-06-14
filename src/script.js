@@ -1,4 +1,5 @@
 import {_clientId,_clientSecret} from './config.js'
+import '../styles.css';
 const clientId = _clientId;
 const clientSecret =_clientSecret;
 // console.log(clientId)
